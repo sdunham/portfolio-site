@@ -23,6 +23,15 @@
 				
   		<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
 		
+		<!-- Scripts -->
+		<!--[if lt IE 9]>
+        <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        <script type="text/javascript" src="http://use.typekit.com/nax4edu.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+        <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js'></script>
+		<script type="text/javascript" src="scripts.js"></script>
+		
 		<!-- wordpress head functions -->
 		<?php wp_head(); ?>
 		<!-- end of wordpress head -->
@@ -33,24 +42,22 @@
 	</head>
 	
 	<body <?php body_class(); ?>>
-	
-		<div id="container">
-			
-			<header class="header" role="banner">
-			
-				<div id="inner-header" class="wrap clearfix">
-					
-					<!-- to use a image just replace the bloginfo('name') with your img src and remove the surrounding <p> -->
-					<p id="logo" class="h1"><a href="<?php echo home_url(); ?>" rel="nofollow"><?php bloginfo('name'); ?></a></p>
-					
-					<!-- if you'd like to use the site description you can un-comment it below -->
-					<?php // bloginfo('description'); ?>
-					
-					
-					<nav role="navigation">
-						<?php bones_main_nav(); ?>
-					</nav>
 				
-				</div> <!-- end #inner-header -->
+		<header class="header" role="banner">
 			
-			</header> <!-- end header -->
+			<div id="logo">
+				<a href="<?php echo home_url(); ?>" id="home">
+					<p>The various coding <span class="amp">&amp;</span> design projects of</p>
+					<h1><?php bloginfo('name'); ?></h1>
+				</a>
+			</div>
+				
+			<nav id="menu-left" role="navigation">
+				<?php bones_left_main_nav(); ?>
+			</nav>
+			
+			<nav id="menu-right" role="navigation">
+				<?php bones_right_main_nav(); ?>
+			</nav>
+						
+		</header> <!-- end header -->
