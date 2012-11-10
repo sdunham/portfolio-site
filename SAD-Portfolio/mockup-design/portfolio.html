@@ -1,0 +1,220 @@
+<!DOCTYPE HTML>
+<html>
+
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Scott Dunham</title>
+        <link rel="stylesheet" type="text/css" href="style.css" />
+        <!--[if lt IE 9]>
+        	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        <script type="text/javascript" src="http://use.typekit.com/nax4edu.js"></script>
+        <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+        <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js'></script>
+        <script type="text/javascript" src="scripts.js"></script>
+    </head>
+
+    <body>
+        <header>
+            <nav>
+                <ul id="menu-left">
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="resume.html">Resume</a></li>
+                </ul>
+                <ul id="menu-right">
+                    <li><a href="like.html">Stuff I Like</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <a href="/design/" id="home"><p>The various coding <span class="amp">&</span> design projects of</p>
+                <h1>Scott Dunham</h1></a>
+            </nav>
+        </header>
+    
+        <section id="project-details">
+            <div id="rotary" class="project">
+                <h1>Rotary Advent Calendar</h1>
+                <img src="rotary_thumb.png">
+                <p>This project came about when the director of my department mentioned that it would be nice to have an advent-style calendar as a promotional/educational tool. I wanted my calendar to serve the same basic function as an advent calendar, but to be visually distinctive. I kicked around a few design concepts, but after coming across <a href="https://github.com/weepy/jquery.path">jQuery.path</a>, I got the idea to model it after a rotary dial phone.</p>
+                <p>The calendar days form a ring around a central content area and rotate to the top when clicked, revealing the appropriate content once the rotation is complete. If an invalid day (i.e. > today's date) is clicked, the rotation is skipped and the content area is populated with a message informing the user when they'll be able to view the requested content.</p>
+                <div class="list">
+                    <h2>Technologies Used:</h2>
+                    <ul>
+                        <li><a href="http://jquery.com/">jQuery</a></li>
+                        <li><a href="https://github.com/weepy/jquery.path">jQuery.path</a></li>
+                        <li>CSS3</li>
+                    </ul>
+                </div>
+                <div class="list">
+                    <h2>Features of Note:</h2>
+                    <ul>
+                        <li>jQuery.path animates selected day to top position around the central content area</li>
+                        <li>Flexible enough to handle every month, takes leap year into account</li>
+                        <li>Rotational direction depends on shortest path</li>
+                    </ul>
+                </div>
+                <br>
+                <a href="http://www.pugetsound.edu/about/offices--services/ces/test-page/" class="more-info" target="_blank">Check It Out >></a>
+            </div>
+            <div id="ask-night" class="project" style="display:none;">
+                <h1>ASK Night Participant List</h1>
+                <img src="ASK_thumb.png">
+                <p>Alumni Sharing Knowledge (ASK) Night is an annual networking event hosted by my employer in which current students have a chance to network with alumni volunteers. In order to help the students prepare for the event, my department posts a list of the attendees. The original list needed to be manually constructed using data submitted by the attendees, and could only contain limited information. This updated list pulls data and images directly from the attendee registration form, and allows students to easily filter and search. The list is designed to eliminate duplicate data entry, and to convey a wide variety of information about each attendee in a compact format.</p>
+                <div class="list">
+                    <h2>Technologies Used:</h2>
+                    <ul>
+                        <li><a href="http://jquery.com/">jQuery</a></li>
+                        <li><a href="http://wufoo.com/">Wufoo</a></li>
+                        <li>CSS3</li>
+                    </ul>
+                </div>
+                <div class="list">
+                    <h2>Features of Note:</h2>
+                    <ul>
+                        <li>Participant information is gathered via a Wufoo form</li>
+                        <li>List is populated by form data using Wufoo API</li>
+                        <li>jQuery filter controls allow users to search based on keyword and grad school attendance</li>
+                    </ul>
+                </div>
+                <br>
+                <a href="http://www.pugetsound.edu/about/offices--services/ces/ask-test/" class="more-info" target="_blank">Check It Out >></a>
+            </div>
+            <div id="career-fair" class="project" style="display:none;">
+                <h1>Career Fair Participant List</h1>
+                <img src="career_fair_thumb.png">
+                <p>This project was an extension of the ASK Night Participant List, with the goal of creating a list of employers who will be attending my department's Career Fair event. The major difference with this version is the inclusion of greatly enhanced filter controls. This was made possible by the use of several multiple choice fields, the data from which lent itself to easy filtering of the participants.</p>
+                <div class="list">
+                    <h2>Technologies Used:</h2>
+                    <ul>
+                        <li><a href="http://jquery.com/">jQuery</a></li>
+                        <li><a href="http://wufoo.com/">Wufoo</a></li>
+                        <li>CSS3</li>
+                    </ul>
+                </div>
+                <div class="list">
+                    <h2>Features of Note:</h2>
+                    <ul>
+                        <li>Based on the ASK Night Participant List design</li>
+                        <li>Uses Wufoo to collect and populate participant data</li>
+                        <li>Filter controls greatly enhanced due to improved form design</li>
+                    </ul>
+                </div>
+                <br>
+                <a href="http://www.pugetsound.edu/about/offices--services/ces/career-events/career-fair/participants/" class="more-info" target="_blank">Check It Out >></a>
+            </div>
+            <div id="dnhmsctt" class="project" style="display:none;">
+                <h1>dnhmsctt.com</h1>
+                <img src="http://placekitten.com/250/250/">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <div class="list">
+                    <h2>Technologies Used:</h2>
+                    <ul>
+                        <li><a href="http://typekit.com/">Typekit</a></li>
+                        <li>CSS3</li>
+                        <li><a href="http://jquery.com/">jQuery</a></li>
+                    </ul>
+                </div>
+                <div class="list">
+                    <h2>Features of Note:</h2>
+                    <ul>
+                        <li>Fonts provided by Typekit</li>
+                        <li>Extensive use of CSS3 (transitions, gradients, etc...)</li>
+                        <li>jQuery-powered portfolio (the page you're on right now!)</li>
+                    </ul>
+                </div>
+                <br>
+                <a href="#" class="more-info">Check It Out >></a>
+            </div>
+            <div id="21cellars" class="project" style="display:none;">
+                <h1>21cellars.com</h1>
+                <img src="21c_thumb.png">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <div class="list">
+                    <h2>Technologies Used:</h2>
+                    <ul>
+                        <li><a href="http://wordpress.org/">Wordpress</a></li>
+                        <li><a href="http://ithemes.com/purchase/builder-theme/">iThemes Builder theme</a></li>
+                        <li><a href="http://www.slidedeck.com/">SlideDeck</a></li>
+                    </ul>
+                </div>
+                <div class="list">
+                    <h2>Features of Note:</h2>
+                    <ul>
+                        <li>Builder theme served as the base for this design, with extensive alterations based on client needs</li>
+                        <li>Full-image backgrounds cycle based on time of day</li>
+                        <li>SlideDeck-powered wine list provides client a flexible framework to share information about their product</li>
+                    </ul>
+                </div>
+                <br>
+                <a href="http://21cellars.com/" class="more-info" target="_blank">Check It Out >></a>
+            </div>
+            <div id="katamari" class="project" style="display:none;">
+                <h1>Katamari/Osmos Clone</h1>
+                <img src="Katamari_thumb.png">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <div class="list">
+                    <h2>Technologies Used:</h2>
+                    <ul>
+                        <li><a href="http://www.opengl.org/">OpenGL</a></li>
+                        <li><a href="http://www.cplusplus.com/">C++</a></li>
+                        <li><a href="http://www.microsoft.com/visualstudio/en-us">Microsoft Visual Studio 2010</a></li>
+                    </ul>
+                </div>
+                <div class="list">
+                    <h2>Features of Note:</h2>
+                    <ul>
+                        <li>OpenGL and C++ used to render interactive 3D environment</li>
+                        <li>Advanced features include: simple collision detection, phong shading, texture-mapped meshes, sound integration</li>
+                        <li>3 difficulty levels, plus "secret" techno-mode!</li>
+                    </ul>
+                </div>
+                <br>
+                <a href="#" class="more-info">Check It Out >></a>
+            </div>
+        </section>
+        
+        <section id="project-list">
+            <div id="jquery" class="arr">
+                <h1>jQuery Projects</h1>
+                <p class="rotary">Rotary Advent Calendar</p>
+                <p class="ask-night">ASK Night Participants List</p>
+                <p class="career-fair">Career Fair Participants List</p>
+            </div>
+            <div id="design" class="gee">
+                <h1>Web Design Projects</h1>
+                <p class="dnhmsctt">This Site!</p>
+                <p class="21cellars">21 Cellars Winery</p>
+            </div>
+            <div id="programming" class="bee">
+                <h1>Programming Projects</h1>
+                <p class="katamari">Katamari/Osmos Clone</p>
+            </div>
+        </section>
+        <footer>
+        	<div id="wisdom">
+                <h3>Pearls of Wisdom &#8211; <a href="https://twitter.com/DunhamScott">@dunhamscott</a></h3>
+                <p id="tweet"></p>
+                <p id="posted"></p>
+            </div>
+            <div id="people">
+                <h3>People You Should Follow</h3>
+                <ul>
+                    <li><a href="http://chriscoyier.net/" class="css">Chris Coyier</a></li>
+                    <li><a href="http://visualidiot.com/" class="idiot">Visual Idiot</a></li>
+                    <li><a href="http://paulirish.com/" class="person">Paul Irish</a></li>
+                    <li><a href="http://lea.verou.me/" class="verou">Lea Verou</a></li>
+                </ul>
+            </div>
+            <div id="friends">
+                <h3>Let's Be Friends!</h3>
+                <ul>
+                    <li><a href="https://www.facebook.com/dunham.scott" class="fb">Facebook</a></li>
+                    <li><a href="https://twitter.com/DunhamScott" class="twitter">Twitter</a></li>
+                    <li><a href="https://plus.google.com/109293312641450984623" class="gplus">Google+</a></li>
+                    <li><a href="http://www.linkedin.com/in/sdunham" class="linkedin">Linkedin</a></li>
+                </ul>
+            </div>
+            <hr>
+            <p id="tagline"><span id="copy">Copyright &copy; 2012 Scott Dunham</span><span id="shoutout">Made from sunshine, lollipops, rainbows, and <a href="http://wordpress.org">Wordpress</a>... In that order.</span></p>
+        </footer>
+    </body>
+</html>
