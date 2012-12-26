@@ -20,7 +20,7 @@ function TwitterDateConverter(time){
 }
 
 //Populate footer tweet
-$.getJSON("http://twitter.com/statuses/user_timeline/dunhamscott.json?callback=?", function(data) {
+$.getJSON("https://api.twitter.com/1/statuses/user_timeline.json?screen_name=dunhamscott&count=1&callback=?", function(data) {
 	$.each(data, function(key,value){
 		cur = value;
 		if(cur.in_reply_to_user_id == null && cur.retweeted == false){
@@ -29,9 +29,6 @@ $.getJSON("http://twitter.com/statuses/user_timeline/dunhamscott.json?callback=?
 			return false; //End the loop!
 		}
 	});
-
-	//$("#tweet").html(data[0].text);
-	//$("#posted").html(TwitterDateConverter(data[0].created_at));
 });
 
 //Document Ready

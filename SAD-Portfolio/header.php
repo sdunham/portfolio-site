@@ -33,7 +33,7 @@
 		<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/library/js/sad_scripts.js"></script>
 		
 		<!-- Styles -->
-		<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/library/css/style_static.css" type="text/css" media="all">
+		<!-- <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/library/css/style_static.css" type="text/css" media="all"> -->
 		
 		<!-- wordpress head functions -->
 		<?php wp_head(); ?>
