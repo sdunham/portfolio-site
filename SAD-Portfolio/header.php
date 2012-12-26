@@ -29,8 +29,11 @@
         <![endif]-->
         <script type="text/javascript" src="http://use.typekit.com/nax4edu.js"></script>
 		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-        <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js'></script>
-		<script type="text/javascript" src="scripts.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+		<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/library/js/sad_scripts.js"></script>
+		
+		<!-- Styles -->
+		<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/library/css/style_static.css" type="text/css" media="all">
 		
 		<!-- wordpress head functions -->
 		<?php wp_head(); ?>

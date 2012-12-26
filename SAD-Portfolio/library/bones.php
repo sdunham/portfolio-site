@@ -271,9 +271,9 @@ function bones_main_nav_fallback() {
 }
 
 // this is the fallback for footer menu
-/*function bones_footer_links_fallback() {
+//function bones_footer_links_fallback() {
 	/* you can put a default here if you like */
-}*/
+//}
 
 /*********************
 RELATED POSTS FUNCTION
