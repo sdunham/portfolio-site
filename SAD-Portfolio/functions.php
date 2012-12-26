@@ -162,4 +162,134 @@ function bones_wpsearch($form) {
 } // don't remove this bracket!
 
 
+/************* CUSTOM POST TYPE - PROJECT *****************/
+
+// Registers the new post type and taxonomy
+function sad_project_posttype() {
+    register_post_type( 'project',
+        array(
+            'labels' => array(
+                'name' => __( 'Project' ),
+                'singular_name' => __( 'Project' ),
+                'add_new' => __( 'Add New Project' ),
+                'add_new_item' => __( 'Add New Project' ),
+                'edit_item' => __( 'Edit Project' ),
+                'new_item' => __( 'Add New Project' ),
+                'view_item' => __( 'View Project' ),
+                'search_items' => __( 'Search Projects' ),
+                'not_found' => __( 'No projects found' ),
+                'not_found_in_trash' => __( 'No projects found in trash' )
+            ),
+            'public' => true,
+            'supports' => array( 'title', 'editor', 'thumbnail', 'custom-fields' ),
+            'capability_type' => 'post',
+            'rewrite' => array("slug" => "project"), // Permalinks format
+            'menu_position' => 5,
+            'register_meta_box_cb' => 'add_project_metaboxes'
+        )
+    );
+}
+add_action( 'init', 'sad_project_posttype' );
+
+// Add the Project Meta Boxes
+function add_project_metaboxes() {
+    add_meta_box('sad_project_data', 'Project Info', 'sad_project_data', 'project', 'normal', 'high');
+}
+
+// The Project Name Metabox
+function sad_project_data() {
+    global $post;
+    // Noncename needed to verify where the data originated
+    echo '<input type="hidden" name="projectmeta_noncename" id="projectmeta_noncename" value="' .
+    wp_create_nonce( plugin_basename(__FILE__) ) . '" />';
+    // Get the data if its already been entered
+    $proj_tech_1 = get_post_meta($post->ID, '_projtech1', true);
+	$proj_tech_2 = get_post_meta($post->ID, '_projtech2', true);
+	$proj_tech_3 = get_post_meta($post->ID, '_projtech3', true);
+	$proj_feat_1 = get_post_meta($post->ID, '_projfeat1', true);
+	$proj_feat_2 = get_post_meta($post->ID, '_projfeat2', true);
+	$proj_feat_3 = get_post_meta($post->ID, '_projfeat3', true);
+	$proj_url = get_post_meta($post->ID, '_projurl', true);
+	$proj_cat = get_post_meta($post->ID, '_projcat', true);
+    // Echo out the fields
+    echo '<p>Technology Used:</p>';
+	echo '<input type="text" name="_projtech1" value="' . $proj_tech_1  . '" class="widefat" />';
+	echo '<input type="text" name="_projtech2" value="' . $proj_tech_2  . '" class="widefat" />';
+	echo '<input type="text" name="_projtech3" value="' . $proj_tech_3  . '" class="widefat" />';
+	echo '<p>Features:</p>';
+	echo '<input type="text" name="_projfeat1" value="' . $proj_feat_1  . '" class="widefat" />';
+	echo '<input type="text" name="_projfeat2" value="' . $proj_feat_2  . '" class="widefat" />';
+	echo '<input type="text" name="_projfeat3" value="' . $proj_feat_3  . '" class="widefat" />';
+	echo '<p>URL:</p>';
+	echo '<input type="text" name="_projurl" value="' . $proj_url  . '" class="widefat" />';
+	echo '<p>Category:</p>';
+	echo '<input type="radio" name="_projcat" value="jquery" ' . (($proj_cat == 'jquery') ? 'checked="checked"' : '') . '/> jQuery<br />';
+	echo '<input type="radio" name="_projcat" value="web" ' . (($proj_cat == 'web') ? 'checked="checked"' : '') . '/> Computer Science<br />';
+	echo '<input type="radio" name="_projcat" value="prog" ' . (($proj_cat == 'prog') ? 'checked="checked"' : '') . '/> Mathematics & Computer Science<br />';
+}
+
+// Save the Metabox Data
+function wpt_save_project_meta($post_id, $post) {
+    // verify this came from the our screen and with proper authorization,
+    // because save_post can be triggered at other times
+    if ( !wp_verify_nonce( $_POST['projectmeta_noncename'], plugin_basename(__FILE__) )) {
+    return $post->ID;
+    }
+    // Is the user allowed to edit the post or page?
+    if ( !current_user_can( 'edit_post', $post->ID ))
+        return $post->ID;
+    // OK, we're authenticated: we need to find and save the data
+    // We'll put it into an array to make it easier to loop though.
+    $proj_meta['_projtech1'] = $_POST['_projtech1'];
+	$proj_meta['_projtech2'] = $_POST['_projtech2'];
+	$proj_meta['_projtech3'] = $_POST['_projtech3'];
+	$proj_meta['_projfeat1'] = $_POST['_projfeat1'];
+	$proj_meta['_projfeat2'] = $_POST['_projfeat2'];
+	$proj_meta['_projfeat3'] = $_POST['_projfeat3'];
+	$proj_meta['_projurl'] = $_POST['_projurl'];
+	$proj_meta['_projcat'] = $_POST['_projcat'];
+    // Add values of $proj_meta as custom fields
+    foreach ($proj_meta as $key => $value) { // Cycle through the $proj_meta array!
+        if( $post->post_type == 'revision' ) return; // Don't store custom data twice
+        $value = implode(',', (array)$value); // If $value is an array, make it a CSV (unlikely)
+        if(get_post_meta($post->ID, $key, FALSE)) { // If the custom field already has a value
+            update_post_meta($post->ID, $key, $value);
+        } else { // If the custom field doesn't have a value
+            add_post_meta($post->ID, $key, $value);
+        }
+        if(!$value) delete_post_meta($post->ID, $key); // Delete if blank
+    }
+}
+add_action('save_post', 'wpt_save_project_meta', 1, 2); // save the custom fields
+
+// Change the columns for the edit Project screen
+function proj_change_columns( $cols ) {
+  $cols = array(
+    'cb'        => '<input type="checkbox" />',
+    'title'     => __( 'Project Title',      'trans' ),
+	'projurl'   => __( 'Project URL',      'trans' ),
+    'projcat' => __( 'Project Category', 'trans' ),
+  );
+  return $cols;
+}
+add_filter( "manage_seminar_posts_columns", "proj_change_columns" );
+
+function proj_custom_columns( $column, $post_id ) {
+  switch ( $column ) {
+    case "title":
+      $col_title = get_the_title($post_id);
+	  echo '<a href="' . get_edit_post_link($post_id) . '">' . $col_title . '</a>';
+      break;
+	case "semdate":
+      echo get_post_meta( $post_id, '_semdate', true);
+      break;
+    case "presenter":
+      echo get_post_meta( $post_id, '_sempres', true);
+      break;
+  }
+}
+
+add_action( "manage_posts_custom_column", "proj_custom_columns", 10, 2 );
+
+
 ?>

@@ -44,16 +44,16 @@
 	<body <?php body_class(); ?>>
 				
 		<header class="header" role="banner">
-			
-			<div id="logo">
-				<a href="<?php echo home_url(); ?>" id="home">
-					<p>The various coding <span class="amp">&amp;</span> design projects of</p>
-					<h1><?php bloginfo('name'); ?></h1>
-				</a>
-			</div>
 				
-			<nav id="menu-left" role="navigation">
+			<nav role="navigation">
+				<div id="logo">
+					<a href="<?php echo home_url(); ?>" id="home">
+						<p>The various coding <span class="amp">&amp;</span> design projects of</p>
+						<h1><?php bloginfo('name'); ?></h1>
+					</a>
+				</div>
 				<?php bones_left_main_nav(); ?>
+				<?php bones_right_main_nav(); ?>
 			</nav>
 			
 			<nav id="menu-right" role="navigation">

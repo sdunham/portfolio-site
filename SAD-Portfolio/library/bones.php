@@ -236,7 +236,7 @@ function bones_left_main_nav() {
     	'container' => false,                           // remove nav container
     	'container_class' => 'menu clearfix',           // class of container (should you choose to use it)
     	'menu' => 'The Main Menu (left half)',          // nav name
-    	'menu_class' => 'nav top-nav clearfix',         // adding custom nav class
+    	'menu_class' => 'nav top-nav clearfix menu-left',// adding custom nav class
     	'theme_location' => 'left-main-nav',            // where it's located in the theme
     	'before' => '',                                 // before the menu
         'after' => '',                                  // after the menu
@@ -254,7 +254,7 @@ function bones_right_main_nav() {
     	'container' => false,                           // remove nav container
     	'container_class' => 'menu clearfix',           // class of container (should you choose to use it)
     	'menu' => 'The Main Menu (right half)',         // nav name
-    	'menu_class' => 'nav top-nav clearfix',         // adding custom nav class
+    	'menu_class' => 'nav top-nav clearfix menu-right',// adding custom nav class
     	'theme_location' => 'right-main-nav',           // where it's located in the theme
     	'before' => '',                                 // before the menu
         'after' => '',                                  // after the menu
