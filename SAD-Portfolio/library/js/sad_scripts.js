@@ -35,10 +35,26 @@ $.getJSON("https://api.twitter.com/1/statuses/user_timeline.json?screen_name=dun
 $(function() {
 	//Portfolio behavior
 	$("#project-list div p").click(function() {
-		var thisClass = $(this).attr("class");
-		$(".project").filter(":visible").fadeOut("slow", function(){
-			$(".project#" + thisClass).fadeIn("slow");
+		//var thisClass = $(this).attr("class");
+		var post_id = $(this).attr("class");
+
+		$.ajax({
+			type : "get",
+			//dataType : "json",
+			//url : "../wp-content/themes/SAD-Portfolio/AJAX-loadProject.php",
+			url : "../ajax-loadproject/",
+			data : {post_id : post_id},
+			success: function(response) {
+				/*$(".project").fadeOut("slow", function(){
+					
+				});*/
+				alert(response);
+				console.log(response);
+			}
 		});
+		/*$(".project").filter(":visible").fadeOut("slow", function(){
+			$(".project#" + thisClass).fadeIn("slow");
+		});*/
 	});
 });
 
