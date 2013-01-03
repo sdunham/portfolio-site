@@ -224,8 +224,8 @@ function sad_project_data() {
 	echo '<input type="text" name="_projurl" value="' . $proj_url  . '" class="widefat" />';
 	echo '<p>Category:</p>';
 	echo '<input type="radio" name="_projcat" value="jquery" ' . (($proj_cat == 'jquery') ? 'checked="checked"' : '') . '/> jQuery<br />';
-	echo '<input type="radio" name="_projcat" value="web" ' . (($proj_cat == 'web') ? 'checked="checked"' : '') . '/> Computer Science<br />';
-	echo '<input type="radio" name="_projcat" value="prog" ' . (($proj_cat == 'prog') ? 'checked="checked"' : '') . '/> Mathematics & Computer Science<br />';
+	echo '<input type="radio" name="_projcat" value="web" ' . (($proj_cat == 'web') ? 'checked="checked"' : '') . '/> Web Design<br />';
+	echo '<input type="radio" name="_projcat" value="prog" ' . (($proj_cat == 'prog') ? 'checked="checked"' : '') . '/> Programming<br />';
 }
 
 // Save the Metabox Data

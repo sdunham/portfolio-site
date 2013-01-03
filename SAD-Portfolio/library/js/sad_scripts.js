@@ -41,15 +41,16 @@ $(function() {
 		$.ajax({
 			type : "get",
 			//dataType : "json",
-			//url : "../wp-content/themes/SAD-Portfolio/AJAX-loadProject.php",
-			url : "../ajax-loadproject/",
-			data : {post_id : post_id},
+			url : "../?p="+post_id,
+			//url : "../ajax-loadproject/",
+			//data : {post_id : post_id},
 			success: function(response) {
-				/*$(".project").fadeOut("slow", function(){
-					
-				});*/
-				alert(response);
-				console.log(response);
+				$(".project").fadeOut("slow", function(){
+					$(".project").html(response);
+					$(".project").fadeIn("slow");
+				});
+				/*alert(response);
+				console.log(response);*/
 			}
 		});
 		/*$(".project").filter(":visible").fadeOut("slow", function(){
