@@ -18,7 +18,7 @@ nav, section, footer {
 	margin:0 auto;
 	width:960px;
 	position:relative;
-	font-size:16px;
+	font-size:18px;
 }
 
 nav, footer {
@@ -40,6 +40,7 @@ aside#braces {
 	width:250px;
 	height:360px;
 	font-size:290px;
+	text-align:center;
 	opacity:0.25;
 	overflow:hidden;
 	-webkit-transform:rotate(25deg);
@@ -127,7 +128,7 @@ div.list ul {
 }
 
 section#contact {
-	min-height:500px;
+	min-height:455px;
 }
 
 div.lyrics {
@@ -261,7 +262,7 @@ header a {
 }
 
 .arr h1, .gee h1, .bee h1 {
-	font-size:20px;
+	font-size:16px;
 	font-style:italic;
 	-webkit-transition:0.5s;
 	-moz-transition:0.5s;
@@ -408,6 +409,8 @@ nav a#home:hover span {
 nav ul li a {
 	text-decoration:none;
 	font-size:24px;
+	font-weight: bold;
+	font-style: italic;
 	display:block;
 	height:70px;
 	line-height:70px;
@@ -535,13 +538,13 @@ footer hr {
 	clear:both;
 }
 
-footer hr:before {
+/*footer hr:before {
 	content:"\A7";
 	position:relative;
 	left:50%;
 	top:-11px;
 	color:#B3E002;
-}
+}*/
 
 footer #wisdom p#tweet {
 	margin-top:20px;
