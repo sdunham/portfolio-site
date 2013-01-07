@@ -110,7 +110,7 @@ div.project {
 
 div.project img {
 	float:right;
-	margin-left:5px;
+	margin:10px;
 	-moz-box-shadow:0 0 25px #333;
 	-webkit-box-shadow:0 0 25px #333;
 	box-shadow:0 0 25px #333;
@@ -161,29 +161,22 @@ div#contact-form {
 	padding-left:18px;
 }
 
-#wisdom {
+#wisdom, #people, #friends {
 	display:inline-block;
+	height:145px;
 	float:right;
 	padding-right:25px;
-	width:520px;
-	height:125px;
+}
+
+#wisdom {
+	width:500px;
 }
 
 #people {
 	display:inline-block;
 	border-right:1px dashed #CCC;
 	border-left:1px dashed #ccc;
-	float:right;
-	padding-right:25px;
-	height:125px;
 	padding-bottom:10px;
-}
-
-#friends {
-	display:inline-block;
-	float:right;
-	padding-right:25px;
-	height:125px;
 }
 
 
@@ -259,6 +252,7 @@ header a {
 	position:absolute;
 	right:10px;
 	text-decoration:none !important;
+	font-weight:normal;
 }
 
 .arr h1, .gee h1, .bee h1 {
@@ -299,7 +293,7 @@ section a {
 	color:#597001;
 }
 
-section a:hover {
+section a:hover, footer a:hover {
 	text-decoration:underline;
 }
 
@@ -333,9 +327,10 @@ div.lyrics p.footnote {
 }
 
 #wisdom h3, #people h3, #friends h3 {
-	margin:5px 15px;
-	font-style:italic;
-	font-weight:normal;
+	margin: 5px 15px;
+	font-style: italic;
+	font-weight: bold;
+	font-size: 16px;
 }
 
 #people ul, #friends ul {
@@ -390,6 +385,7 @@ nav span.amp {
 	display:inline-block;
 	position:relative;
 	top:10px;
+	left:1px;
 	font-style:italic;
 	-webkit-transition:0.5s;
 	-moz-transition:0.5s;
@@ -435,7 +431,6 @@ nav ul li a:hover {
 /* Footer */
 footer {
 	border-radius:25px;
-	height:175px;
 	clear:both;
 }
 
@@ -456,6 +451,13 @@ footer #friends li:hover, footer #people li:hover {
 footer a {
 	color:#B3E002;
 	text-decoration:none;
+}
+
+footer a.github:before {
+	content:url("../images/github.png");
+	position:relative;
+	left:-4px;
+	top:3px;
 }
 
 footer a.fb:before {
@@ -517,7 +519,7 @@ footer a.css:before {
 footer #tagline {
 	position:relative;
 	text-align:center;
-	margin:10px 0;
+	margin-bottom:5px;
 }
 
 footer span#copy {

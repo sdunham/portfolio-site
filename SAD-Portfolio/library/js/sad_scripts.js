@@ -17,56 +17,34 @@ function TwitterDateConverter(time){
 		day_diff == 1 && "Yesterday" ||
 		day_diff < 7 && day_diff + " days ago" ||
 		day_diff < 31 && Math.ceil( day_diff / 7 ) + " weeks ago";
-}
+};
 
-//Populate footer tweet
-$.getJSON("https://api.twitter.com/1/statuses/user_timeline.json?screen_name=dunhamscott&count=1&callback=?", function(data) {
-	$.each(data, function(key,value){
-		cur = value;
-		if(cur.in_reply_to_user_id == null && cur.retweeted == false){
-			$("#tweet").html(cur.text);
-			$("#posted").html(TwitterDateConverter(cur.created_at));
-			return false; //End the loop!
-		}
-	});
-});
-
-//Document Ready
+//Document Ready, LET'S DO THIS.
 $(function() {
-	//Portfolio behavior
+	//Populate footer tweet
+	$.getJSON("https://api.twitter.com/1/statuses/user_timeline.json?screen_name=dunhamscott&count=1&callback=?", function(data) {
+		$.each(data, function(key,value){
+			cur = value;
+			if(cur.in_reply_to_user_id == null && cur.retweeted == false){
+				$("#tweet").html(cur.text);
+				$("#posted").html(TwitterDateConverter(cur.created_at));
+				return false; //End the loop!
+			}
+		});
+	});
+	
+	//Load portfolio item
 	$("#project-list div p").click(function() {
-		//var thisClass = $(this).attr("class");
 		var post_id = $(this).attr("class");
-
 		$.ajax({
 			type : "get",
-			//dataType : "json",
 			url : "../?p="+post_id,
-			//url : "../ajax-loadproject/",
-			//data : {post_id : post_id},
 			success: function(response) {
 				$(".project").fadeOut("slow", function(){
 					$(".project").html(response);
 					$(".project").fadeIn("slow");
 				});
-				/*alert(response);
-				console.log(response);*/
 			}
 		});
-		/*$(".project").filter(":visible").fadeOut("slow", function(){
-			$(".project#" + thisClass).fadeIn("slow");
-		});*/
 	});
 });
-
-
-//Old Animation
-/*$(function() {
-	//Portfolio behavior
-	$("#project-list div p").click(function() {
-		var thisClass = $(this).attr("class");
-		$(".project").filter(":visible").slideUp("slow", function(){
-			$(".project#" + thisClass).slideDown("slow");
-		});
-	});
-});*/

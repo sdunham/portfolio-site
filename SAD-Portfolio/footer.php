@@ -5,17 +5,19 @@
 				<p id="posted"></p>
 			</div>
 			<div id="people">
-				<h3>People You Should Follow</h3>
+				<h3>People To Follow</h3>
 				<ul>
 					<li><a href="http://chriscoyier.net/" class="css">Chris Coyier</a></li>
 					<li><a href="http://visualidiot.com/" class="idiot">Visual Idiot</a></li>
 					<li><a href="http://paulirish.com/" class="person">Paul Irish</a></li>
+					<li><a href="http://ejohn.org/" class="person">John Resig</a></li>
 					<li><a href="http://lea.verou.me/" class="verou">Lea Verou</a></li>
 				</ul>
 			</div>
 			<div id="friends">
 				<h3>Let's Be Friends!</h3>
 				<ul>
+					<li><a href="https://github.com/sdunham" class="github">GitHub</a></li>
 					<li><a href="https://www.facebook.com/dunham.scott" class="fb">Facebook</a></li>
 					<li><a href="https://twitter.com/DunhamScott" class="twitter">Twitter</a></li>
 					<li><a href="https://plus.google.com/109293312641450984623" class="gplus">Google+</a></li>
