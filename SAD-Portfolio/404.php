@@ -1,43 +1,17 @@
 <?php get_header(); ?>
-			
-			<div id="content">
-
-				<div id="inner-content" class="wrap clearfix">
-			
-					<div id="main" class="eightcol first clearfix" role="main">
-
-						<article id="post-not-found" class="hentry clearfix">
-						
-							<header class="article-header">
-							
-								<h1><?php _e("Epic 404 - Article Not Found", "bonestheme"); ?></h1>
-						
-							</header> <!-- end article header -->
-					
-							<section class="entry-content">
-							
-								<p><?php _e("The article you were looking for was not found, but maybe try looking again!", "bonestheme"); ?></p>
-					
-							</section> <!-- end article section -->
-
-							<section class="search">
-				
-							    <p><?php get_search_form(); ?></p>
-				
-							</section> <!-- end search section -->
-						
-							<footer class="article-footer">
-							
-							    <p><?php _e("This is the 404.php template.", "bonestheme"); ?></p>
-							
-							</footer> <!-- end article footer -->
-					
-						</article> <!-- end article -->
-			
-					</div> <!-- end #main -->
-
-				</div> <!-- end #inner-content -->
-    
-			</div> <!-- end #content -->
-
+	<?php
+		$arrayOfCuteStuff = array(
+		"http://placekitten.com/500/500",
+		"http://placedog.com/500/500",
+		"http://flickholdr.com/500/500/bunny",
+		"http://placeape.com/500/500",
+		"http://flickholdr.com/500/500/ferret"
+		);
+		$cuteImageURL = $arrayOfCuteStuff[rand(0,4)];
+	?>
+	<section id="fourOhFour">
+		<h1>This Isn't the Page Your're Looking For...</h1>
+		<p>But don't worry... Here's a consolation prize:</p>
+		<img src="<?php echo $cuteImageURL ?>" />
+	</section>
 <?php get_footer(); ?>

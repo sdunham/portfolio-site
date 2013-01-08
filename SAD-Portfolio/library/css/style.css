@@ -30,11 +30,6 @@ nav, footer {
 	box-shadow:0 0 60px #333;
 }
 
-/*aside {
-	float:right;
-	width:150px;
-}*/
-
 aside#braces {
 	float:right;
 	width:250px;
@@ -62,9 +57,14 @@ section#project-wrapper {
 	width:76%;
 }
 
-section#project-list, section#like {
+section#project-list, section#like, section#fourOhFour {
 	clear:both;
 	text-align:center;
+}
+
+#fourOhFour img {
+	border-radius:50px 0;
+	margin:20px 0;
 }
 
 #jquery, #design, #programming {
