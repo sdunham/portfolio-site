@@ -338,6 +338,11 @@ div.lyrics p.footnote {
 	list-style:none;
 }
 
+.gde-text {
+	text-align:center;
+	font-weight:bold;
+}
+
 
 /* Menu */	
 nav {

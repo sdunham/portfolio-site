@@ -8,7 +8,7 @@ Template Name: Portfolio
 	<section id="project-details">
 		<div class="project">
 			<?php
-			$args = array( 'post_type' => 'project', 'posts_per_page' => 1 );
+			$args = array( 'post_type' => 'project', 'posts_per_page' => 1, 'orderby' => 'title', 'order' => 'ASC' );
 			$loop = new WP_Query($args); ?>
 			<?php if ($loop->have_posts()) : while ($loop->have_posts()) : $loop->the_post(); ?>
 			<?php

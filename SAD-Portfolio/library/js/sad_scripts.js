@@ -20,6 +20,7 @@ function TwitterDateConverter(time){
 };
 
 //Convert URLs (w/ or w/o protocol), @mentions, and #hashtags into anchor links
+//http://roadha.us/2011/03/create-anchor-links-in-twitter-status-text-with-javascript/
 function twitterLinks(text){
     var base_url = 'http://twitter.com/';   //'http://identi.ca/'
     var hashtag_part = 'search?q=#';        //'tag/'
