@@ -10,7 +10,7 @@
 		$cuteImageURL = $arrayOfCuteStuff[rand(0,4)];
 	?>
 	<section id="fourOhFour">
-		<h1>This Isn't the Page Your're Looking For...</h1>
+		<h1>This Isn't the Page You're Looking For...</h1>
 		<p>But don't worry... Here's a consolation prize:</p>
 		<img src="<?php echo $cuteImageURL ?>" />
 	</section>
