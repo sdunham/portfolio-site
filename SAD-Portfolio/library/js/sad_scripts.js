@@ -1,23 +1,32 @@
 //Converts twitter "created_at" date to an easily-read string
-//http://www.phpmind.com/blog/2011/02/how-to-change-date-formate-of-twitter-field-created_at%E2%80%99/
-function TwitterDateConverter(time){
-	var date = new Date(time),
-	diff = (((new Date()).getTime() - date.getTime()) / 1000),
-	day_diff = Math.floor(diff / 86400);
- 
-	if ( isNaN(day_diff) || day_diff < 0 || day_diff >= 31 )
-		return;
- 
-	return day_diff == 0 && (
-		diff < 60 && "just now" ||
-		diff < 120 && "1 minute ago" ||
-		diff < 3600 && Math.floor( diff / 60 ) + " minutes ago" ||
-		diff < 7200 && "1 hour ago" ||
-		diff < 86400 && Math.floor( diff / 3600 ) + " hours ago") ||
-		day_diff == 1 && "Yesterday" ||
-		day_diff < 7 && day_diff + " days ago" ||
-		day_diff < 31 && Math.ceil( day_diff / 7 ) + " weeks ago";
-};
+function parseTwitterDate(tdate) {
+    var system_date = new Date(Date.parse(tdate));
+    var user_date = new Date();
+    if (K.ie) {
+        system_date = Date.parse(tdate.replace(/( \+)/, ' UTC$1'))
+    }
+    var diff = Math.floor((user_date - system_date) / 1000);
+    if (diff <= 1) {return "just now";}
+    if (diff < 20) {return diff + " seconds ago";}
+    if (diff < 40) {return "half a minute ago";}
+    if (diff < 60) {return "less than a minute ago";}
+    if (diff <= 90) {return "one minute ago";}
+    if (diff <= 3540) {return Math.round(diff / 60) + " minutes ago";}
+    if (diff <= 5400) {return "1 hour ago";}
+    if (diff <= 86400) {return Math.round(diff / 3600) + " hours ago";}
+    if (diff <= 129600) {return "1 day ago";}
+    if (diff < 604800) {return Math.round(diff / 86400) + " days ago";}
+    if (diff <= 777600) {return "1 week ago";}
+    return "on " + system_date;
+}
+
+// from http://widgets.twimg.com/j/1/widget.js
+var K = function () {
+    var a = navigator.userAgent;
+    return {
+        ie: a.match(/MSIE\s([^;]*)/)
+    }
+}();
 
 //Convert URLs (w/ or w/o protocol), @mentions, and #hashtags into anchor links
 //http://roadha.us/2011/03/create-anchor-links-in-twitter-status-text-with-javascript/
@@ -64,7 +73,7 @@ $(function() {
 			if(cur.in_reply_to_user_id == null && cur.retweeted == false){
 				var linkifiedText = twitterLinks(cur.text);
 				$("#tweet").html(linkifiedText);
-				$("#posted").html("<a href='https://twitter.com/" + cur.user.screen_name + "/status/" + cur.id_str + "' target='_target'>" + TwitterDateConverter(cur.created_at) + "</a>");
+				$("#posted").html("<a href='https://twitter.com/" + cur.user.screen_name + "/status/" + cur.id_str + "' target='_target'>" + parseTwitterDate(cur.created_at) + "</a>");
 				return false; //End the loop!
 			}
 		});
