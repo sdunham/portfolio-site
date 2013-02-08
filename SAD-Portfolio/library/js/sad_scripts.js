@@ -67,7 +67,7 @@ function twitterLinks(text){
 //Document Ready, LET'S DO THIS.
 $(function() {
 	//Populate footer tweet
-	$.getJSON("https://api.twitter.com/1/statuses/user_timeline.json?screen_name=dunhamscott&count=1&callback=?", function(data) {
+	$.getJSON("https://api.twitter.com/1/statuses/user_timeline.json?screen_name=dunhamscott&count=1&exclude_replies=true&include_rts=false&callback=?", function(data) {
 		$.each(data, function(key,value){
 			cur = value;
 			if(cur.in_reply_to_user_id == null && cur.retweeted == false){
